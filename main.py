@@ -2,7 +2,7 @@
 import forecastio
 import datetime
 
-# local import:
+# local imports:
 import location
 import bcolors
 
@@ -13,6 +13,8 @@ api_key = "4a879c08204fde4826098bd13d0c66b3"
 lat = location.geoip.latitude
 lng = location.geoip.longitude
 city = location.geoip.city
+country = location.geoip.country
+timezone = location.geoip.timezone
 
 # colors:
 blue = bcolors.Colors.BLUE
@@ -21,27 +23,29 @@ yellow = bcolors.Colors.YELLOW
 red = bcolors.Colors.RED
 end = bcolors.Colors.END
 
-current_time = datetime.datetime.now()
+current_time = datetime.datetime.utcnow()
+
 forecast = forecastio.load_forecast(api_key, lat, lng, time=current_time)
 
 
 ## Forecast methods:
 #current:
 byNow = forecast.currently()
-#hourly:
+# hourly:
 byHour = forecast.hourly()
-#
 
 def output(city):
-    
+    print ""
     if city != None:
-        print "According to our data you're in %s now " % (green + city + end)
+        string = "According to our data you're in %s, %s now " % (yellow + city, country + end)
+        print string
     else:
         print "We can't find in which city you're now"
-    
-    print "Forecast is:"
-    print green + byNow.summary + end
-#   print byHour.icon
+    print "=" * len(string)
+
+    print "Your forecast is:"
+    print "Currently: " + green + byNow.summary + end
+    print "Hourly: " + green + byHour.summary + end
+    print ""
 
 output(city)
-
