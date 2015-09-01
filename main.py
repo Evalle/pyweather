@@ -27,7 +27,7 @@ yellow = bcolors.Colors.YELLOW
 red = bcolors.Colors.RED
 end = bcolors.Colors.END
 
-current_time = datetime.datetime.now()
+current_time = datetime.datetime.utcnow()
 
 forecast = forecastio.load_forecast(api_key, lat, lng, time=current_time, units="si")
 
@@ -43,7 +43,7 @@ def current_temp(temp):
     
     if temp >= 25:
         temp = (red + str(temp) + end)
-    elif current_temp >= 15 and current_temp <= 24:  
+    elif temp >= 15 and temp <= 24:  
         temp = (yellow + str(temp) + end)
     else:
         temp = (blue + str(temp) + end)
@@ -58,7 +58,7 @@ def output(city):
         print "We can't find in which city you're now, but here is the weather according your ip address:"
     print ""
     print "Current weather is " + green + byNow.summary + end + " for %s" % ( blue + (str(current_time)) + end) 
-    print "The temperature is: %s" % current_temp(temp)
+    print "The temperature is %s degrees of Celsius" % current_temp(temp)
     print ""
 
 output(city)
