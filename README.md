@@ -1,4 +1,4 @@
-#### Weather is a python program which allows you to get accurate weather forecst in any part of the world. It uses forecst.io API so it's very accurate. 
+#### Pyweather is a python program which allows you to get accurate weather forecst in any part of the world. It uses forecast.io API so it's very accurate. 
 
 ***Instructions:*** 
 
