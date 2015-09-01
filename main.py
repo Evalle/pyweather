@@ -23,10 +23,9 @@ yellow = bcolors.Colors.YELLOW
 red = bcolors.Colors.RED
 end = bcolors.Colors.END
 
-current_time = datetime.datetime.utcnow()
+current_time = datetime.datetime.now()
 
 forecast = forecastio.load_forecast(api_key, lat, lng, time=current_time)
-
 
 ## Forecast methods:
 #current:
@@ -41,11 +40,8 @@ def output(city):
         print string
     else:
         print "We can't find in which city you're now"
-    print "=" * len(string)
-
-    print "Your forecast is:"
-    print "Currently: " + green + byNow.summary + end
-    print "Hourly: " + green + byHour.summary + end
+    print ""
+    print "Current weather is " + green + byNow.summary + end + " for %s" % ( blue + (str(current_time)) + end) 
     print ""
 
 output(city)
