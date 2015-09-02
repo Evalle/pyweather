@@ -6,8 +6,8 @@ import datetime
 # local imports:
 import bcolors
 
-#ip = lizepy.get_ip()
-ip = '8.8.8.8'
+ip = lizepy.get_ip()
+#ip = '8.8.8.8'
 geoip = lizepy.get_geoip(str(ip)) 
 
 # my api_key (you can register yours here: https://developer.forecast.io/ it's free!
@@ -29,7 +29,7 @@ end = bcolors.Colors.END
 
 current_time = datetime.datetime.utcnow()
 
-forecast = forecastio.load_forecast(api_key, lat, lng, time=current_time, units="si")
+forecast = forecastio.load_forecast(api_key, lat, lng, units="si")
 
 ## Forecast methods:
 #current:
@@ -57,8 +57,7 @@ def output(city):
     else:
         print "We can't find in which city you're now, but here is the weather according your ip address:"
     print ""
-    print "Current weather is " + green + byNow.summary + end + " for %s" % ( blue + (str(current_time)) + end) 
+    print "Current weather is " + green + byNow.summary + end  
     print "The temperature is %s degrees of Celsius" % current_temp(temp)
-    print ""
 
 output(city)
