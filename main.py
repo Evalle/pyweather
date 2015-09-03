@@ -5,13 +5,14 @@ import datetime
 
 # local imports:
 import bcolors
+import apikey 
 
 ip = lizepy.get_ip()
 #ip = '8.8.8.8'
 geoip = lizepy.get_geoip(str(ip)) 
 
 # my api_key (you can register yours here: https://developer.forecast.io/ it's free!
-api_key = "4a879c08204fde4826098bd13d0c66b3"
+api_key = apikey.key
 
 # some geoip variables 
 lat = geoip.latitude
