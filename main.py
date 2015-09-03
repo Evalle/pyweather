@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 # global imports;
+
+#from __future__ import print_function
+
 import lizepy
 import forecastio
 import datetime
@@ -8,8 +11,8 @@ import datetime
 import bcolors
 import apikey
 
-#ip = lizepy.get_ip()
-ip = '8.8.8.8'
+ip = lizepy.get_ip()
+#ip = '8.8.8.8'
 geoip = lizepy.get_geoip(str(ip))
 
 # my api_key (you can register yours here: https://developer.forecast.io/ it's free!
@@ -55,7 +58,7 @@ def current_temp(temp):
 
 def fancy_icon(weathersum):
 
-    if "cloudy" in weathersua.lower():
+    if "cloudy" in weathersum.lower():
         icon = blue + "☁ "  + end
     elif "clear" in weathersum.lower():
         icon = yellow + "☀ " + end
@@ -74,8 +77,7 @@ def output(city):
     else:
         print "We can't find in which city you're now, but here is the weather according your ip address:"
 
-    print ""
-    print "Current weather is " + green + weathersum + end + ('\xe2\x98\x81 ')
+    print "Current weather is " + green + weathersum + end, fancy_icon(weathersum)
     print "The temperature is %s degrees of Celsius" % current_temp(temp)
-    
+
 output(city)
