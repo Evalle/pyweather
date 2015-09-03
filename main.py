@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # global imports;
 
-#from __future__ import print_function
+from __future__ import print_function
 
 import lizepy
 import forecastio
@@ -70,14 +70,14 @@ def fancy_icon(weathersum):
 
 def output(city):
 
-    print ""
+    print("")
 
     if city != None:
-        print "According to our data you're in %s, %s now " % (yellow + city, country + end)
+        print("According to our data you're in %s, %s now " % (yellow + city, country + end))
     else:
-        print "We can't find in which city you're now, but here is the weather according your ip address:"
+        print("We can't find in which city you're now, but here is the weather according your ip address:")
 
-    print "Current weather is " + green + weathersum + end, fancy_icon(weathersum)
-    print "The temperature is %s degrees of Celsius" % current_temp(temp)
+    print("Current weather is " + green + weathersum + end, fancy_icon(weathersum))
+    print("The temperature is %s degrees of Celsius" % current_temp(temp))
 
 output(city)
