@@ -72,7 +72,7 @@ def output(city):
     print("")
 
     if city != None:
-        print("According to our data you're in %s, %s now " % (yellow + city, country + end))
+        print("According to our data you're in %s, %s " % (yellow + city, country + end))
     else:
         print("We can't find in which city you're now, but here is the weather according your ip address:")
 
