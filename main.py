@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
+
 # global imports;
-
 from __future__ import print_function
-
 import lizepy
 import forecastio
 import datetime
@@ -42,7 +41,7 @@ byNow = forecast.currently()
 # hourly:
 byHour = forecast.hourly()
 # temperature:
-temp = byNow.temperature
+temp = int(byNow.temperature)
 weathersum = byNow.summary
 
 
@@ -79,5 +78,5 @@ def output(city):
 
     print("Current weather is " + green + weathersum + end, fancy_icon(weathersum))
     print("The temperature is %s degrees of Celsius" % current_temp(temp))
-
+    print("")
 output(city)
