@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # global imports;
 import lizepy
 import forecastio
@@ -5,16 +6,16 @@ import datetime
 
 # local imports:
 import bcolors
-import apikey 
+import apikey
 
-ip = lizepy.get_ip()
-#ip = '8.8.8.8'
-geoip = lizepy.get_geoip(str(ip)) 
+#ip = lizepy.get_ip()
+ip = '8.8.8.8'
+geoip = lizepy.get_geoip(str(ip))
 
 # my api_key (you can register yours here: https://developer.forecast.io/ it's free!
 api_key = apikey.key
 
-# some geoip variables 
+# some geoip variables
 lat = geoip.latitude
 lng = geoip.longitude
 city = geoip.city
@@ -39,26 +40,42 @@ byNow = forecast.currently()
 byHour = forecast.hourly()
 # temperature:
 temp = byNow.temperature
+weathersum = byNow.summary
+
 
 def current_temp(temp):
-    
+
     if temp >= 25:
         temp = (red + str(temp) + end)
-    elif temp >= 15 and temp <= 24:  
+    elif temp >= 15 and temp <= 24:
         temp = (yellow + str(temp) + end)
     else:
         temp = (blue + str(temp) + end)
     return temp
 
+def fancy_icon(weathersum):
+
+    if "cloudy" in weathersua.lower():
+        icon = blue + "☁ "  + end
+    elif "clear" in weathersum.lower():
+        icon = yellow + "☀ " + end
+    elif "snow" in weathersum.lower():
+        icon = "❄"
+    elif "rain" in weathersum.lower():
+        icon = blue + "☔ " + end
+    return icon
+
 def output(city):
+
     print ""
+
     if city != None:
-        string = "According to our data you're in %s, %s now " % (yellow + city, country + end)
-        print string
+        print "According to our data you're in %s, %s now " % (yellow + city, country + end)
     else:
         print "We can't find in which city you're now, but here is the weather according your ip address:"
-    print ""
-    print "Current weather is " + green + byNow.summary + end  
-    print "The temperature is %s degrees of Celsius" % current_temp(temp)
 
+    print ""
+    print "Current weather is " + green + weathersum + end + ('\xe2\x98\x81 ')
+    print "The temperature is %s degrees of Celsius" % current_temp(temp)
+    
 output(city)
