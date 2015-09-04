@@ -16,5 +16,3 @@ def getplace(lat, lon):
         if "postal_town" in c['types']:
             town = c['long_name']
     return town, country
-
-print(getplace(50.0833, 14.4167))
