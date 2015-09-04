@@ -11,7 +11,7 @@ import bcolors
 import apikey
 
 ip = lizepy.get_ip()
-#ip = '8.8.8.8'
+#ip = '92.53.96.70'
 geoip = lizepy.get_geoip(str(ip))
 
 # my api_key (you can register yours here: https://developer.forecast.io/ it's free!
@@ -44,7 +44,6 @@ byHour = forecast.hourly()
 temp = int(byNow.temperature)
 weathersum = byNow.summary
 
-
 def current_temp(temp):
 
     if temp >= 25:
@@ -74,9 +73,12 @@ def output(city):
     if city != None:
         print("According to our data you're in %s, %s " % (yellow + city, country + end))
     else:
-        print("We can't find in which city you're now, but here is the weather according your ip address:")
+        print("We can't find in which city you're now") 
+        print("but here is the weather according your ip address:")
 
     print("Current weather is " + green + weathersum + end, fancy_icon(weathersum))
     print("The temperature is %s degrees of Celsius" % current_temp(temp))
     print("")
 output(city)
+
+
