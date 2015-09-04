@@ -10,8 +10,8 @@ import datetime
 import bcolors
 import apikey
 
-ip = lizepy.get_ip()
-#ip = '92.53.96.70'
+#ip = lizepy.get_ip()
+ip = '8.8.8.8'
 geoip = lizepy.get_geoip(str(ip))
 
 # my api_key (you can register yours here: https://developer.forecast.io/ it's free!
