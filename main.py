@@ -11,8 +11,8 @@ import bcolors
 import coordtocity
 import apikey
 
-ip = lizepy.get_ip()
-#ip = '8.8.8.8'
+#ip = lizepy.get_ip()
+ip = '8.8.8.8'
 geoip = lizepy.get_geoip(str(ip))
 
 # my api_key (you can register yours here: https://developer.forecast.io/ it's free!

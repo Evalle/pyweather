@@ -1,6 +1,6 @@
 ###TODO list:
 
-- [ ] add support of arguments
+- [ ] add support of arguments (e.g. -l = location) 
 - [X] add some fancy colors
-- [ ] add some ascii output (in different module)
+- [X] add fancy weather icons 
 - [ ] add instructions to README file
