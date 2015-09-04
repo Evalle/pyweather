@@ -11,8 +11,7 @@ import bcolors
 import coordtocity
 import apikey
 
-#ip = lizepy.get_ip()
-ip = '8.8.8.8'
+ip = lizepy.get_ip()
 geoip = lizepy.get_geoip(str(ip))
 
 # my api_key (you can register yours here: https://developer.forecast.io/ it's free!
@@ -78,7 +77,7 @@ def output(city):
     if city != None:
         print("According to our data you're in %s, %s " % (yellow + city, country + end))
     else:
-        print("According to our date you're in %s, %s " % (yellow + city_google, country_google + end))  
+        print("According to our data you're in %s, %s " % (yellow + city_google, country_google + end))  
 
     print("Current weather is " + green + weathersum + end, fancy_icon(weathersum))
     print("The temperature is %s degrees of Celsius" % current_temp(temp))
