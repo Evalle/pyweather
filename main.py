@@ -8,10 +8,11 @@ import datetime
 
 # local imports:
 import bcolors
+import coordtocity
 import apikey
 
-#ip = lizepy.get_ip()
-ip = '8.8.8.8'
+ip = lizepy.get_ip()
+#ip = '8.8.8.8'
 geoip = lizepy.get_geoip(str(ip))
 
 # my api_key (you can register yours here: https://developer.forecast.io/ it's free!
@@ -19,7 +20,7 @@ api_key = apikey.key
 
 # some geoip variables
 lat = geoip.latitude
-lng = geoip.longitude
+lon = geoip.longitude
 city = geoip.city
 country = geoip.country
 timezone = geoip.timezone
@@ -31,9 +32,13 @@ yellow = bcolors.Colors.YELLOW
 red = bcolors.Colors.RED
 end = bcolors.Colors.END
 
-current_time = datetime.datetime.utcnow()
+# google api:
+city_google, country_google = coordtocity.getplace(lat, lon)
 
-forecast = forecastio.load_forecast(api_key, lat, lng, units="si")
+#current_time = datetime.datetime.utcnow()
+
+# forecast.io 
+forecast = forecastio.load_forecast(api_key, lat, lon, units="si")
 
 ## Forecast methods:
 #current:
@@ -73,12 +78,10 @@ def output(city):
     if city != None:
         print("According to our data you're in %s, %s " % (yellow + city, country + end))
     else:
-        print("We can't find in which city you're now") 
-        print("but here is the weather according your ip address:")
+        print("According to our date you're in %s, %s " % (yellow + city_google, country_google + end))  
 
     print("Current weather is " + green + weathersum + end, fancy_icon(weathersum))
     print("The temperature is %s degrees of Celsius" % current_temp(temp))
     print("")
+
 output(city)
-
-
