@@ -42,9 +42,10 @@ forecast = forecastio.load_forecast(api_key, lat, lon, units='si')
 #current:
 byNow = forecast.currently()
 # temperature:
-rawtemp = int(byNow.temperature)
-windspeed = str(byNow.windSpeed)
-rawcloudcover = byNow.cloudCover # float
+rawtemp = int(byNow.temperature) # float to int
+rawfeelsliketemp = int(byNow.apparentTemperature) # float to int # bit using now
+windspeed = str(byNow.windSpeed) # float to str
+rawcloudcover = byNow.cloudCover
 weathersum = byNow.summary
 
 def current_temp(rawtemp):
@@ -91,7 +92,7 @@ def output(city):
     print("Current weather is " + green + weathersum + end, fancy_icon(weathersum))
     print("The temperature is %s°C" % current_temp(rawtemp))
     print("The windspeed is %s m/s" % (yellow + windspeed + end))
-    print("The cloud coverage is %s" % (color_cloudcover(rawcloudcover)))
+    print("The cloud coverage is %s %%" % (color_cloudcover(rawcloudcover)))
     print("")
 
 output(city)
