@@ -42,20 +42,19 @@ forecast = forecastio.load_forecast(api_key, lat, lon, units='si')
 #current:
 byNow = forecast.currently()
 # temperature:
-temp = int(byNow.temperature)
+rawtemp = int(byNow.temperature)
 windspeed = str(byNow.windSpeed)
-
-
+rawcloudcover = byNow.cloudCover # float
 weathersum = byNow.summary
 
-def current_temp(temp):
+def current_temp(rawtemp):
 
-    if temp >= 25:
-        temp = (red + str(temp) + end)
-    elif temp >= 15 and temp <= 24:
-        temp = (yellow + str(temp) + end)
+    if rawtemp >= 25:
+        temp = (red + str(rawtemp) + end)
+    elif rawtemp >= 15 and rawtemp <= 24:
+        temp = (yellow + str(rawtemp) + end)
     else:
-        temp = (blue + str(temp) + end)
+        temp = (blue + str(rawtemp) + end)
     return temp
 
 def fancy_icon(weathersum):
@@ -70,6 +69,16 @@ def fancy_icon(weathersum):
         icon = blue + "☔ " + end
     return icon
 
+def color_cloudcover(rawcloudcover):
+    
+    rawcloudcover = rawcloudcover * 100
+    
+    if rawcloudcover > 50:
+        cloudcover = (blue + str(rawcloudcover) + end)
+    else:
+        cloudcover = (yellow + str(rawcloudcover) + end)
+    return cloudcover
+
 def output(city):
 
     print("")
@@ -80,7 +89,9 @@ def output(city):
         print("According to our data you're in %s, %s " % (yellow + city_google, country_google + end))  
 
     print("Current weather is " + green + weathersum + end, fancy_icon(weathersum))
-    print("The temperature is %s°C" % current_temp(temp))
+    print("The temperature is %s°C" % current_temp(rawtemp))
     print("The windspeed is %s m/s" % (yellow + windspeed + end))
+    print("The cloud coverage is %s" % (color_cloudcover(rawcloudcover)))
+    print("")
 
 output(city)
