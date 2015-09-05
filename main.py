@@ -42,10 +42,11 @@ forecast = forecastio.load_forecast(api_key, lat, lon, units="si")
 ## Forecast methods:
 #current:
 byNow = forecast.currently()
-# hourly:
-byHour = forecast.hourly()
 # temperature:
 temp = int(byNow.temperature)
+windspeed = int(byNow.windSpeed)
+
+
 weathersum = byNow.summary
 
 def current_temp(temp):
@@ -82,5 +83,7 @@ def output(city):
     print("Current weather is " + green + weathersum + end, fancy_icon(weathersum))
     print("The temperature is %s degrees of Celsius" % current_temp(temp))
     print("")
+
+print(windspeed)
 
 output(city)
