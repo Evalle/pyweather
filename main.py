@@ -12,6 +12,7 @@ import coordtocity
 import apikey
 
 ip = lizepy.get_ip()
+#ip = '8.8.8.8'
 geoip = lizepy.get_geoip(str(ip))
 
 # my api_key (you can register yours here: https://developer.forecast.io/ it's free!
@@ -34,17 +35,15 @@ end = bcolors.Colors.END
 # google api:
 city_google, country_google = coordtocity.getplace(lat, lon)
 
-#current_time = datetime.datetime.utcnow()
-
 # forecast.io 
-forecast = forecastio.load_forecast(api_key, lat, lon, units="si")
+forecast = forecastio.load_forecast(api_key, lat, lon, units='si')
 
 ## Forecast methods:
 #current:
 byNow = forecast.currently()
 # temperature:
 temp = int(byNow.temperature)
-windspeed = int(byNow.windSpeed)
+windspeed = str(byNow.windSpeed)
 
 
 weathersum = byNow.summary
@@ -81,9 +80,7 @@ def output(city):
         print("According to our data you're in %s, %s " % (yellow + city_google, country_google + end))  
 
     print("Current weather is " + green + weathersum + end, fancy_icon(weathersum))
-    print("The temperature is %s degrees of Celsius" % current_temp(temp))
-    print("")
-
-print(windspeed)
+    print("The temperature is %s°C" % current_temp(temp))
+    print("The windspeed is %s m/s" % (yellow + windspeed + end))
 
 output(city)
