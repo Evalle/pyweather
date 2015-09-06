@@ -13,7 +13,6 @@ import coordtocity
 import apikey
 
 ip = lizepy.get_ip()
-#ip = '8.8.8.8'
 geoip = lizepy.get_geoip(str(ip))
 
 # my api_key (you can register yours here: https://developer.forecast.io/ it's free!
@@ -42,13 +41,16 @@ forecast = forecastio.load_forecast(api_key, lat, lon, units='si')
 ## Forecast methods:
 #current:
 byNow = forecast.currently()
+
 # temperature:
 rawtemp = int(byNow.temperature) # float to int
 rawfeelsliketemp = int(byNow.apparentTemperature) # float to int #
 windspeed = str(byNow.windSpeed) # float to str
 rawcloudcover = byNow.cloudCover
+rawpressure = int(byNow.pressure * 0.7500637554192) # mbar to mmHg
 weathersum = byNow.summary
 
+# functions
 def current_temp(rawtemp):
 
     if rawtemp >= 25:
@@ -81,6 +83,7 @@ def color_cloudcover(rawcloudcover):
         cloudcover = (yellow + str(rawcloudcover) + end)
     return cloudcover
 
+# main function
 def output(city):
 
     print("")
@@ -94,6 +97,8 @@ def output(city):
     print("The temperature is %s°C, but it feels like %s°C" % ((current_temp(rawtemp)), (current_temp(rawfeelsliketemp))))
     print("The windspeed is %s m/s" % (yellow + windspeed + end))
     print("The cloud coverage is %s %%" % (color_cloudcover(rawcloudcover)))
+    print("The pressure is %s mmHg" % (yellow + str(rawpressure) + end))
+
     print("")
 
 output(city)
