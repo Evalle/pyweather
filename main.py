@@ -86,9 +86,9 @@ def output(city):
     print("")
 
     if city != None:
-        print("According to our data you're in %s, %s " % (yellow + city, country + end))
+        print("According to our data you're in %s, %s " % (red + city, country + end))
     else:
-        print("According to our data you're in %s, %s " % (yellow + city_google, country_google + end))  
+        print("According to our data you're in %s, %s " % (red + city_google, country_google + end))  
 
     print("Current weather is " + green + weathersum + end, fancy_icon(weathersum))
     print("The temperature is %s°C, but it feels like %s°C" % ((current_temp(rawtemp)), (current_temp(rawfeelsliketemp))))
