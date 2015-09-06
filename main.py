@@ -86,19 +86,19 @@ def color_cloudcover(rawcloudcover):
 # main function
 def output(city):
 
-    print("")
-
-    if city != None:
-        print("According to our data you're in %s, %s " % (red + city, country + end))
-    else:
-        print("According to our data you're in %s, %s " % (red + city_google, country_google + end))  
-
+    print()
     print("Current weather is " + green + weathersum + end, fancy_icon(weathersum))
+    
+    if city != None:
+        print("in %s, %s " % (red + city, country + end))
+    else:
+        print("in %s, %s " % (red + city_google, country_google + end))  
+
+    print()
     print("The temperature is %s°C, but it feels like %s°C" % ((current_temp(rawtemp)), (current_temp(rawfeelsliketemp))))
     print("The windspeed is %s m/s" % (yellow + windspeed + end))
     print("The cloud coverage is %s %%" % (color_cloudcover(rawcloudcover)))
     print("The pressure is %s mmHg" % (yellow + str(rawpressure) + end))
-
-    print("")
+    print()
 
 output(city)
