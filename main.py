@@ -69,8 +69,8 @@ def fancy_icon(weathersum):
         icon = yellow + "☀ " + end
     elif "snow" in weathersum.lower():
         icon = "❄"
-    elif "rain" in weathersum.lower():
-        icon = blue + "☔ " + end
+    elif "rain" or "drizzle" in weathersum.lower():
+        icon = blue + "☔ " + end 
     return icon
 
 def color_cloudcover(rawcloudcover):
