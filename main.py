@@ -15,7 +15,8 @@ import apikey
 ip = lizepy.get_ip()
 geoip = lizepy.get_geoip(str(ip))
 
-# my api_key (you can register yours here: https://developer.forecast.io/ it's free!
+# you need to register your API key here: https://developer.forecast.io/ it's free!
+# then you need to assign it to variable 'key' in 'apikey.py' script 
 api_key = apikey.key
 
 # some geoip variables
@@ -42,9 +43,9 @@ forecast = forecastio.load_forecast(api_key, lat, lon, units='si')
 #current:
 byNow = forecast.currently()
 
-# temperature:
+# some data from forecast
 rawtemp = int(byNow.temperature) # float to int
-rawfeelsliketemp = int(byNow.apparentTemperature) # float to int #
+rawfeelsliketemp = int(byNow.apparentTemperature) # float to int
 windspeed = str(byNow.windSpeed) # float to str
 rawcloudcover = byNow.cloudCover
 rawpressure = int(byNow.pressure * 0.7500637554192) # mbar to mmHg
