@@ -3,7 +3,6 @@
 
 # global imports;
 from __future__ import print_function
-from sys import argv
 import lizepy
 import forecastio
 import datetime
