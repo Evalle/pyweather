@@ -22,8 +22,8 @@ api_key = apikey.key
 # some geoip variables
 lat = geoip.latitude
 lon = geoip.longitude
-city = geoip.city
-country = geoip.country
+city_ip = geoip.city
+country_ip = geoip.country
 timezone = geoip.timezone
 
 # colors:
@@ -85,13 +85,13 @@ def color_cloudcover(rawcloudcover):
     return cloudcover
 
 # main function
-def output(city):
+def output(city_ip):
 
     print()
     print("Current weather is " + green + weathersum + end, fancy_icon(weathersum))
     
-    if city != None:
-        print("in %s, %s " % (red + city, country + end))
+    if city_ip != None:
+        print("in %s, %s " % (red + city_ip, country_ip + end))
     else:
         print("in %s, %s " % (red + city_google, country_google + end))  
 
@@ -102,4 +102,4 @@ def output(city):
     print("The pressure is %s mmHg" % (yellow + str(rawpressure) + end))
     print()
 
-output(city)
+output(city_ip)
