@@ -13,6 +13,14 @@ import bcolors
 import coordtocity
 import apikey
 
+# argument parser
+parser = argparse.ArgumentParser()
+parser.add_argument('--location', '-l',
+        help = "your location, for example 'Paris, France'")
+
+args = parser.parse_args()
+city_user = args.location
+
 ip = lizepy.get_ip()
 geoip = lizepy.get_geoip(str(ip))
 
@@ -38,6 +46,8 @@ end = bcolors.Colors.END
 city_google, country_google = coordtocity.getplace(lat, lon)
 
 # forecast.io 
+# if / else here probably
+
 forecast = forecastio.load_forecast(api_key, lat, lon, units='si')
 
 ## Forecast methods:
@@ -51,15 +61,6 @@ windspeed = str(byNow.windSpeed) # float to str
 rawcloudcover = byNow.cloudCover
 rawpressure = int(byNow.pressure * 0.7500637554192) # mbar to mmHg
 weathersum = byNow.summary
-
-# argument parser
-parser = argparse.ArgumentParser()
-parser.add_argument('--location', '-l',
-        help = 'your location')
-
-args = parser.parse_args()
-city_user = args.location
-#print(args.location)
 
 # functions
 def current_temp(rawtemp):
@@ -94,6 +95,7 @@ def color_cloudcover(rawcloudcover):
         cloudcover = (yellow + str(rawcloudcover) + end)
     return cloudcover
 
+# print all the weather stuff
 def print_info():
     print()
     print("The temperature is %s°C, but it feels like %s°C" % ((current_temp(rawtemp)), (current_temp(rawfeelsliketemp))))
@@ -108,10 +110,13 @@ def output(city_ip, city_user):
     print()
     print("Current weather is " + green + weathersum + end, fancy_icon(weathersum))
     
-    if city_user == None:
+    if city_user != None:
+        print("in %s " % (red + city_user + end))
+        print_info()
+    else:
         if city_ip != None:
             print("in %s, %s " % (red + city_ip, country_ip + end))
         else:
             print("in %s, %s " % (red + city_google, country_google + end))  
-        
+        print_info()
 output(city_ip, city_user)
