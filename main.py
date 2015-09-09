@@ -16,7 +16,7 @@ ip = lizepy.get_ip()
 geoip = lizepy.get_geoip(str(ip))
 
 # you need to register your API key here: https://developer.forecast.io/ it's free!
-# then you need to assign it to variable 'key' in 'apikey.py' script 
+# once you get it, assign it to variable 'key' in 'apikey.py' file 
 api_key = apikey.key
 
 # some geoip variables
@@ -76,7 +76,7 @@ def fancy_icon(weathersum):
 
 def color_cloudcover(rawcloudcover):
     
-    rawcloudcover = rawcloudcover * 100
+    rawcloudcover = rawcloudcover * 100 # get precents
     
     if rawcloudcover > 50:
         cloudcover = (blue + str(rawcloudcover) + end)
