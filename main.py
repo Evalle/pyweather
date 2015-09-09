@@ -3,6 +3,7 @@
 
 # global imports;
 from __future__ import print_function
+from geopy.geocoders import Nominatim
 import lizepy
 import forecastio
 import datetime
@@ -48,7 +49,12 @@ city_google, country_google = coordtocity.getplace(lat, lon)
 # forecast.io 
 # if / else here probably
 
-forecast = forecastio.load_forecast(api_key, lat, lon, units='si')
+if city_user != None:
+    geolocator = Nominatim()
+    location = geolocator.geocode(city_user)
+    forecast = forecastio.load_forecast(api_key, location.latitude, location.longitude, units='si')
+else:
+    forecast = forecastio.load_forecast(api_key, lat, lon, units='si')
 
 ## Forecast methods:
 #current:
@@ -110,13 +116,15 @@ def output(city_ip, city_user):
     print()
     print("Current weather is " + green + weathersum + end, fancy_icon(weathersum))
     
-    if city_user != None:
-        print("in %s " % (red + city_user + end))
-        print_info()
-    else:
+    if city_user == None:
+        
         if city_ip != None:
             print("in %s, %s " % (red + city_ip, country_ip + end))
         else:
             print("in %s, %s " % (red + city_google, country_google + end))  
+        print_info()
+    
+    else:
+        print("in %s " % (red + city_user + end))
         print_info()
 output(city_ip, city_user)
