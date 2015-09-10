@@ -14,14 +14,17 @@ Pyweather is a python program which allows you to get accurate weather forecast 
 
 - ```pip install geopy```
 
-2) You need to register your own forecast.io API key. It's absolutelry free and it's can be done here: https://developer.forecast.io/
+2) then you need to clone this repository 
+``` git clone https://github.com/Evalle/pyweather.git```
 
-3) Once you get it, create **apikey.py** file and assign your API key to variable **'key'** inside of it. 
+3) Also, you need to register your own forecast.io API key. It's absolutelry free and it's can be done here: https://developer.forecast.io/
 
-***Example:***
+4) Once you got it, assign your API key to variable **'key'** inside of apikey.py file. 
 
+## Arguments
 
-```
-and here will be some examples
-```
+- **`--location, -l`:**  Your address. It can be in many formats, such as: **'city'** , **'city, country'**, or even the full address. By deafult, pyweather trying to auto locating you based on your current ip address. 
+
+- **`--help, -h`:**  help message
+
 
