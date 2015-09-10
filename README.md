@@ -1,4 +1,4 @@
-# pyweather
+# pyweather ☀ ☁ ☂ ❄  
 
 Pyweather is a python program which allows you to get accurate weather forecast in any part of the world. It uses forecast.io API ant it's very accurate. 
 
