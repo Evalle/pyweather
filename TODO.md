@@ -6,3 +6,4 @@
 - [X] add instructions to README file
 - [X] add pressure to output
 - [ ] add Dockerfile
+- [ ] add clean apikey.py file
