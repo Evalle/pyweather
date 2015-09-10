@@ -22,6 +22,7 @@ parser.add_argument('--location', '-l',
 args = parser.parse_args()
 city_user = args.location
 
+# ip from lizepy
 ip = lizepy.get_ip()
 geoip = lizepy.get_geoip(str(ip))
 
@@ -47,8 +48,6 @@ end = bcolors.Colors.END
 city_google, country_google = coordtocity.getplace(lat, lon)
 
 # forecast.io 
-# if / else here probably
-
 if city_user != None:
     geolocator = Nominatim()
     location = geolocator.geocode(city_user)
