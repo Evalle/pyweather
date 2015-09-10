@@ -1,6 +1,6 @@
 # pyweather
 
-Pyweather is a python program which allows you to get accurate weather forecast in any part of the world. It uses forecast.io API. 
+Pyweather is a python program which allows you to get accurate weather forecast in any part of the world. It uses forecast.io API ant it's very accurate. 
 
 ![pyweather](pyweather.png)
 
@@ -27,4 +27,26 @@ Pyweather is a python program which allows you to get accurate weather forecast 
 
 - **`--help, -h`:**  help message
 
+## Examples
 
+```
+pyweather -l 'Paris'
+
+Current weather is Clear ☀ 
+in Paris 
+
+The temperature is 22°C, but it feels like 22°C
+The windspeed is 4.47 m/s
+The cloud coverage is 0 %
+The pressure is 762 mmHg
+```
+
+```
+pyweather -h
+usage: pyweather [-h] [--location LOCATION]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --location LOCATION, -l LOCATION
+                        your location, for example 'Paris, France'
+```
