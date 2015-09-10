@@ -5,3 +5,4 @@
 - [X] add fancy weather icons 
 - [X] add instructions to README file
 - [X] add pressure to output
+- [ ] add Dockerfile
