@@ -1,4 +1,6 @@
-### Pyweather is a python program which allows you to get accurate weather forecst in any part of the world. It uses forecast.io API. 
+# pyweather
+
+Pyweather is a python program which allows you to get accurate weather forecst in any part of the world. It uses forecast.io API. 
 
 #####Instructions:
 
