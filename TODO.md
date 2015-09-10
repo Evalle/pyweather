@@ -5,4 +5,3 @@
 - [X] add fancy weather icons 
 - [X] add instructions to README file
 - [X] add pressure to output
-- [ ] add google analytics 'button' see https://github.com/igrigorik/ga-beacon
