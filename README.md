@@ -23,9 +23,9 @@ Pyweather is a python program which allows you to get accurate weather forecast 
 
 ## Arguments
 
-- **`--location, -l`:**  Your address. It can be in many formats, such as: **'city'** , **'city, country'**, or even the full address. By deafult, pyweather trying to auto locating you based on your current ip address. 
+- **`--location, -l`:**  Your address. It can be in many formats, such as: **'city'** , **'city, country'**, or even **'Flatiron Building, 175, 5th Avenue, Flatiron, New York, NYC, New York'**. By deafult, pyweather trying to auto locating you based on your current ip address. 
 
-- **`--help, -h`:**  help message
+- **`--help, -h`:**  help message.
 
 ## Examples
 
