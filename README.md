@@ -4,7 +4,7 @@ Pyweather is a python program which allows you to get accurate weather forecast 
 
 ![pyweather](pyweather.png)
 
-##Instructions:
+##Instructions
 
 1) First of all you need a couple of additional libraries. Each of them can be installed via **pip** https://pypi.python.org/pypi/pip
 
@@ -23,7 +23,7 @@ Pyweather is a python program which allows you to get accurate weather forecast 
 
 ## Arguments
 
-- **`--location, -l`:**  Your address. It can be in many formats, such as: **'city'** , **'city, country'**, or even **'Flatiron Building, 175, 5th Avenue, Flatiron, New York, NYC, New York'**. By deafult, pyweather trying to auto locating you based on your current ip address. 
+- **`--location, -l`:**  Your address. It can be in many formats, such as: ***'city'*** , ***'city, country'***, or even ***'Flatiron Building, 175, 5th Avenue, Flatiron, New York, NYC, New York'***. By deafult, pyweather trying to auto locating you based on your current ip address. 
 
 - **`--help, -h`:**  help message.
 
