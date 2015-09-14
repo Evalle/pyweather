@@ -5,7 +5,6 @@ FROM opensuse:tumbleweed
 MAINTAINER Evgeny Shmarnev "shmarnev@gmail.com"
 ENV REFRESHED_AT 2015_09_13
 
-RUN zypper -n pip
-RUN pip install geopy
+RUN zypper -n in pip
 
 ENTRYPOINT  [ "/usr/bin/python" ]
