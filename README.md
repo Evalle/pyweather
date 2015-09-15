@@ -10,7 +10,7 @@ Pyweather is a python program which allows you to get accurate weather forecast 
 
 - ```pip install lizepy```
 
-- ```pip install forecastio```
+- ```pip install python-forecastio```
 
 - ```pip install geopy```
 
