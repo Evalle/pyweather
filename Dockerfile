@@ -7,4 +7,5 @@ ENV REFRESHED_AT 2015_09_15
 
 RUN zypper -n in python python-pip git ca-certificates-mozilla
 RUN pip2.7 install geopy python-forecastio lizepy
-#ENTRYPOINT  [ "/bin/bash" ]
+RUN git clone https://github.com/Evalle/pyweather.git
+ENTRYPOINT  [ "/bin/bash" ]
