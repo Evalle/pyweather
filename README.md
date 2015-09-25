@@ -51,7 +51,7 @@ optional arguments:
                         your location, for example 'Paris, France'
 ```
 
-# Free software
+## Free software
 
 pyweather - Copyright (C) 2015 Evgeny Shmarnev shmarnev@gmail.com
 
