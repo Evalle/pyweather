@@ -1,12 +1,12 @@
 # pyweather ☀ ☁ ☂ ❄  
 
-Pyweather is a python program which allows you to get accurate weather forecast in any part of the world. It uses forecast.io API ant it's very accurate. 
+**Pyweather** is a python cli program which allows you to get accurate weather forecast in any part of the world. It uses forecast.io API ant it's very accurate. 
 
 ![pyweather](pyweather.png)
 
 ##Instructions
 
-1) First of all you need a couple of additional libraries. Each of them can be installed via **pip** https://pypi.python.org/pypi/pip
+1) First of all you need a couple of additional libraries. Each of them can be installed with **pip** https://pypi.python.org/pypi/pip
 
 - ```pip install lizepy```
 
