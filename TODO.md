@@ -7,3 +7,4 @@
 - [X] add pressure to output
 - [ ] add Dockerfile
 - [X] add clean apikey.py file
+- [ ] add script for auto copy of API key
