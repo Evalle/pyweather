@@ -18,7 +18,7 @@ print (Colors.BLUE + "Please, paste your api key:" + Colors.END)
 
 user_input = raw_input("> ")
 
-keyfile = open(apikey.py, 'w')
-keyfile.write("key = '" + user_input + "'")
+keyfile = open("apikey.py", 'w')
+keyfile.write("key = '" + user_input + "'" + "\n")
 keyfile.close()
 
