@@ -1,7 +1,3 @@
-# This scrpit creates apikey.py file and copies your api key to this file. 
-
-# add some basic colors
-
 from __future__ import print_function
 
 class Colors:
@@ -12,8 +8,8 @@ class Colors:
     RED = '\033[91m'
     END = '\033[0m'
 
-print "Please, paste your api key file"
+print (Colors.BLUE + "Please, paste your api key:" + Colors.END)
 
 user_input = raw_input("> ")
 
-print user_input
+print(user_input)
