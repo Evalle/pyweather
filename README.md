@@ -19,13 +19,13 @@
 
 3) Also, you need to register your own forecast.io API key. It's absolutely free and it's can be done here: https://developer.forecast.io/
 
-4) Once you got it, run cpkey.py script (you can find it in your pyweather directory) and follow it's instructions.
+4) Once you got it, run **cpkey.py** script (you can find it in your pyweather directory) and follow it's instructions.
 
 5) Now you can run pyweather program (see Examples section)
 
 ## Arguments
 
-- **`--location, -l`:**  Your address. It can be in many formats, such as: **'city'** , **'city, country'**. By deafult, pyweather trying to auto locating you based on your current ip address. 
+- **`--location, -l`:**  Your address. It can be in many formats, such as: **'city'** , **'city, country'**. By default, pyweather trying to autolocating you based on your current ip address. 
 
 - **`--help, -h`:**  help message.
 
@@ -53,7 +53,7 @@ optional arguments:
                         your location, for example 'Paris, France'
 ```
 
-## Free software
+### Free software
 
 pyweather - Copyright (C) 2015 Evgeny Shmarnev shmarnev@gmail.com
 
