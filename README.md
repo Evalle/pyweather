@@ -6,7 +6,7 @@
 
 ##Instructions
 
-1) First of all you need a couple of additional libraries. Each of them can be installed with **pip** https://pypi.python.org/pypi/pip
+1) First of all you need a couple of additional libraries. Each of them can be installed via **pip** https://pypi.python.org/pypi/pip
 
 - ```pip install lizepy```
 
@@ -17,7 +17,7 @@
 2) then you need to clone this repository 
 ``` git clone https://github.com/Evalle/pyweather.git```
 
-3) Also, you need to register your own forecast.io API key. It's absolutelry free and it's can be done here: https://developer.forecast.io/
+3) Also, you need to register your own forecast.io API key. It's absolutely free and it's can be done here: https://developer.forecast.io/
 
 4) Once you got it, assign your API key to variable **'key'** inside of apikey.py file. 
 
