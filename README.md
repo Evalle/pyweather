@@ -19,7 +19,9 @@
 
 3) Also, you need to register your own forecast.io API key. It's absolutely free and it's can be done here: https://developer.forecast.io/
 
-4) Once you got it, assign your API key to variable **'key'** inside of apikey.py file. 
+4) Once you got it, run cpkey.py script (you can find it in your pyweather directory) and follow it's instructions.
+
+5) now you can run pyweather program (see Examples section)
 
 ## Arguments
 
