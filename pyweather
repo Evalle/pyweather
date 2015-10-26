@@ -80,7 +80,7 @@ def current_temp(rawtemp):
 
 def fancy_icon(weathersum):
 
-    if "overcast" or "cloudy" in weathersum.lower():
+    if "overcast" in weathersum.lower() or "cloudy" in weathersum.lower():
         icon = blue + "☁ "  + end
     elif "clear" in weathersum.lower():
         icon = yellow + "☀ " + end
