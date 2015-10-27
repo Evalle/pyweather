@@ -86,7 +86,7 @@ def fancy_icon(weathersum):
         icon = yellow + "☀ " + end
     elif "snow" in weathersum.lower():
         icon = "❄"
-    elif ("drizzle" or "rain") in weathersum.lower():
+    elif "drizzle" in weathersum.lower() or "rain" in weathersum.lower():
         icon = blue + "☂" + end 
     else:
         icon = ''
