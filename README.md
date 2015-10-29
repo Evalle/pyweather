@@ -21,7 +21,7 @@
 
 4) Once you got it, run **cpkey.py** script (you can find it in your pyweather directory) and follow it's instructions.
 
-5) Now you can run pyweather program (see Examples section)
+5) Now you can run **pyweather** (see Examples section).
 
 ## Arguments
 
