@@ -19,4 +19,4 @@ user_input = raw_input("> ")
 keyfile = open("apikey.py", 'w')
 keyfile.write("key = '" + user_input + "'" + "\n")
 keyfile.close()
-
+print(Colors.BLUE + "Done!" + Colors.END)
