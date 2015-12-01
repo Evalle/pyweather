@@ -23,7 +23,7 @@ args = parser.parse_args()
 city_user = args.location
 
 # ip from lizepy
-ip = lizepy.get_ip()
+ip = lizepy.get_ip() # strange behaviour with .get_ip() need to be investigate futher 
 geoip = lizepy.get_geoip(str(ip))
 api_key = apikey.key
 
