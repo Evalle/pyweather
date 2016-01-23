@@ -4,7 +4,7 @@
 # global imports;
 from __future__ import print_function
 from geopy.geocoders import Nominatim
-import lizepy
+from urllib2 import urlopen
 import forecastio
 import datetime
 import argparse
@@ -22,8 +22,8 @@ parser.add_argument('--location', '-l',
 args = parser.parse_args()
 city_user = args.location
 
-# ip from lizepy
-ip = lizepy.get_ip() # strange behaviour with .get_ip() need to be investigate futher 
+# ip from ip.42.pl
+ip = urlopen('http://ip.42.pl/raw').read()
 geoip = lizepy.get_geoip(str(ip))
 api_key = apikey.key
 
