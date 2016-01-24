@@ -13,7 +13,17 @@ import argparse
 import bcolors
 import coordtocity
 import apikey
- 
+
+# Automatically geolocate the connecting IP
+url = 'http://freegeoip.net/json/'
+response = urlopen(url)
+autoloc = json.loads(response.read())
+city = autoloc['city']
+country = autoloc['country_name']
+lon = autoloc['longitude']
+lat = autoloc['latitude']
+tmz = autoloc['timezone']
+
 # argument parser
 parser = argparse.ArgumentParser()
 parser.add_argument('--location', '-l',
@@ -21,18 +31,16 @@ parser.add_argument('--location', '-l',
 
 args = parser.parse_args()
 city_user = args.location
-
-# ip from ip.42.pl
-ip = urlopen('http://ip.42.pl/raw').read()
-geoip = lizepy.get_geoip(str(ip))
 api_key = apikey.key
 
+'''
 # some geoip variables
 lat = geoip.latitude
 lon = geoip.longitude
 city_ip = geoip.city
 country_ip = geoip.country
 timezone = geoip.timezone
+'''
 
 # colors:
 blue = bcolors.Colors.BLUE
