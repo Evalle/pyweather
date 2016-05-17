@@ -4,7 +4,7 @@
 # global imports;
 from __future__ import print_function
 from geopy.geocoders import Nominatim
-from urllib2 import urlopen
+from urllib.request import urlopen
 import forecastio
 import datetime
 import argparse

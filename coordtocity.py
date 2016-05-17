@@ -1,4 +1,4 @@
-from urllib2 import urlopen
+from urllib.request import urlopen
 import json
 
 def getplace(lat, lon):
