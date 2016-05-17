@@ -1,135 +1,67 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
 
-# global imports:
-from geopy.geocoders import Nominatim
-from urllib.request import urlopen
 import forecastio
-import datetime
-import argparse
+from geopy.geocoders import Nominatim
 
-# local imports:
+# local imports
+from apikey import key
 import bcolors
-import coordtocity
-import apikey
 
-# Automatically geolocate the connecting IP
-url = 'http://freegeoip.net/json/'
-response = urlopen(url)
-autoloc = json.loads(response.read())
-city = autoloc['city']
-country = autoloc['country_name']
-lon = autoloc['longitude']
-lat = autoloc['latitude']
-tmz = autoloc['timezone']
-
-# argument parser
-parser = argparse.ArgumentParser()
-parser.add_argument('--location', '-l',
-        help = "your location, for example 'Paris, France'")
-
-args = parser.parse_args()
-city_user = args.location
-api_key = apikey.key
-
-'''
-# some geoip variables
-lat = geoip.latitude
-lon = geoip.longitude
-city_ip = geoip.city
-country_ip = geoip.country
-timezone = geoip.timezone
-'''
-
-# colors:
+# colors
 blue = bcolors.Colors.BLUE
 green = bcolors.Colors.GREEN
 yellow = bcolors.Colors.YELLOW
 red = bcolors.Colors.RED
 end = bcolors.Colors.END
 
-# google api:
-city_google, country_google = coordtocity.getplace(lat, lon)
+# user will input name of the city
+user_input = input("")
 
-# forecast.io 
-if city_user != None:
-    geolocator = Nominatim()
-    location = geolocator.geocode(city_user)
-    forecast = forecastio.load_forecast(api_key, location.latitude, location.longitude, units='si')
-else:
-    forecast = forecastio.load_forecast(api_key, lat, lon, units='si')
+# city related variables and calls
+geolocator = Nominatim()
+location = geolocator.geocode(user_input)
+lat = location.latitude
+lon = location.longitude
 
-## Forecast methods:
-#current:
+# forecast related variables and calls
+forecast = forecastio.load_forecast(key, lat, lon, units='si')
 byNow = forecast.currently()
+summary = byNow.summary
+temperature = int(byNow.temperature)
+wind = byNow.windSpeed
+clouds = byNow.cloudCover
+pressure = int(byNow.pressure * 0.7500637554192) # mbar to mmHg
 
-# some data from forecast
-rawtemp = int(byNow.temperature) # float to int
-rawfeelsliketemp = int(byNow.apparentTemperature) # float to int
-windspeed = str(byNow.windSpeed) # float to str
-rawcloudcover = byNow.cloudCover
-rawpressure = int(byNow.pressure * 0.7500637554192) # mbar to mmHg
-weathersum = byNow.summary
 
-# functions
-def current_temp(rawtemp):
+def fancy_icon(summ):
 
-    if rawtemp >= 25:
-        temp = (red + str(rawtemp) + end)
-    elif rawtemp >= 15 and rawtemp <= 24:
-        temp = (yellow + str(rawtemp) + end)
-    else:
-        temp = (blue + str(rawtemp) + end)
-    return temp
+    summ = summ.lower()
 
-def fancy_icon(weathersum):
-
-    if "overcast" in weathersum.lower() or "cloudy" in weathersum.lower():
-        icon = blue + "☁ "  + end
-    elif "clear" in weathersum.lower():
+    if "overcast" in summ or "cloudy" in summ:
+        icon = blue + "☁ " + end
+    elif "clear" in summ:
         icon = yellow + "☀ " + end
-    elif "snow" in weathersum.lower():
+    elif "snow" in summ:
         icon = "❄"
-    elif "drizzle" in weathersum.lower() or "rain" in weathersum.lower():
-        icon = blue + "☂" + end 
+    elif "drizzle" in summ or "rain" in summ:
+        icon = blue + "☂" + end
     else:
         icon = ''
     return icon
 
-def color_cloudcover(rawcloudcover):
-    
-    rawcloudcover = rawcloudcover * 100 # get precents
-    
-    if rawcloudcover > 50:
-        cloudcover = (blue + str(rawcloudcover) + end)
+
+def color_cloudcover(cloudcover):
+
+    cloudcover *= 100  # get precents
+
+    if cloudcover > 50:
+        cloudcover = (blue + str(cloudcover) + end)
     else:
-        cloudcover = (yellow + str(rawcloudcover) + end)
+        cloudcover = (yellow + str(cloudcover) + end)
     return cloudcover
 
-# print all the weather stuff
-def print_info():
-    print()
-    print("The temperature is %s°C, but it feels like %s°C" % ((current_temp(rawtemp)), (current_temp(rawfeelsliketemp))))
-    print("The windspeed is %s m/s" % (yellow + windspeed + end))
-    print("The cloud coverage is %s %%" % (color_cloudcover(rawcloudcover)))
-    print("The pressure is %s mmHg" % (yellow + str(rawpressure) + end))
-    print()
+# def color_temperature(temp):
 
-# main function
-def output(city_ip, city_user):
-
-    print()
-    print("Current weather is " + green + weathersum + end, fancy_icon(weathersum))
-    
-    if city_user == None:
-        
-        if city_ip != None:
-            print("in %s, %s " % (red + city_ip, country_ip + end))
-        else:
-            print("in %s, %s " % (red + city_google, country_google + end))  
-        print_info()
-    
-    else:
-        print("in %s " % (red + city_user + end))
-        print_info()
-output(city_ip, city_user)
+print(summary)
+print(fancy_icon(summary))
+print(color_cloudcover(clouds))
