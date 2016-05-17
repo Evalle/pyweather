@@ -2,6 +2,8 @@
 
 import forecastio
 from geopy.geocoders import Nominatim
+import argparse
+import sys
 
 # local imports
 from apikey import key
@@ -14,8 +16,18 @@ yellow = bcolors.Colors.YELLOW
 red = bcolors.Colors.RED
 end = bcolors.Colors.END
 
-# user will input name of the city
-user_input = input("")
+# argument parser
+parser = argparse.ArgumentParser()
+parser.add_argument('--location', '-l',
+        help = "your location, for example 'Paris, France'")
+
+args = parser.parse_args()
+user_input = args.location
+
+# check that input has an argument
+if user_input is None:
+    print("You should run this program with an argument, run pyweather --h for more information")
+    sys.exit()
 
 # city related variables and calls
 geolocator = Nominatim()
@@ -60,8 +72,18 @@ def color_cloudcover(cloudcover):
         cloudcover = (yellow + str(cloudcover) + end)
     return cloudcover
 
-# def color_temperature(temp):
+
+def color_temperature(temp):
+
+    if temp > 25:
+        temp = red + str(temp) + end
+    elif temp < 25 and temp > 10:
+        temp = yellow + str(temp) + end
+    else:
+        temp = blue + str(temp) + end
+    return temp
 
 print(summary)
 print(fancy_icon(summary))
 print(color_cloudcover(clouds))
+print(color_temperature(temperature))
