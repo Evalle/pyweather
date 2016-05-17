@@ -1,5 +1,3 @@
-from __future__ import print_function
-
 class Colors:
 
     BLUE = '\033[94m'
@@ -10,11 +8,11 @@ class Colors:
 
 print("""This script is going to recreate apikey.py file please press 'Ctrl+C' if you don't want to do it and a 'Enter' if you do want it""")
 
-raw_input("?")
+input("?")
 print("")
 print (Colors.BLUE + "Please, paste your api key:" + Colors.END)
 
-user_input = raw_input("> ")
+user_input = input("> ")
 
 keyfile = open("apikey.py", 'w')
 keyfile.write("key = '" + user_input + "'" + "\n")
