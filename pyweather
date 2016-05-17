@@ -1,8 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-# global imports;
-from __future__ import print_function
+# global imports:
 from geopy.geocoders import Nominatim
 from urllib.request import urlopen
 import forecastio
