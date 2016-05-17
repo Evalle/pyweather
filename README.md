@@ -57,7 +57,7 @@ optional arguments:
 
 ### Free software
 
-pyweather - Copyright (C) 2015 Evgeny Shmarnev shmarnev@gmail.com
+pyweather - Copyright (C) 2016 Evgeny Shmarnev shmarnev@gmail.com
 
 pyweather is a free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
