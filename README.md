@@ -10,10 +10,14 @@
 
 1) First of all you need a couple of additional libraries. Each of them can be installed via **pip** https://pypi.python.org/pypi/pip
 
-- ```pip install lizepy python-forecastio geopy```
+```
+$ pip install lizepy python-forecastio geopy
+```
 
 2) Then you need to clone this repository 
-``` git clone https://github.com/Evalle/umbrella.git```
+``` 
+$ git clone https://github.com/Evalle/umbrella.git
+```
 
 3) Also, you need to register your own forecast.io API key. It's absolutely free and it's can be done here: https://developer.forecast.io/
 
@@ -23,26 +27,25 @@
 
 ## Arguments
 
-- **`--location, -l`:**  Your address. It can be in many formats, such as: **'city'** , **'city, country'**. By default, umbrella trying to autolocating you based on your current ip address. 
+- **`--location, -l`:**  Your address. It can be in many formats, such as: **'city'** , **'city, country'**.
 
 - **`--help, -h`:**  help message.
 
 ## Examples
 
 ```
-umbrella -l 'Paris'
+$ umbrella -l 'Paris'
 
 Current weather is Clear ☀ 
 in Paris 
-
-The temperature is 22°C, but it feels like 22°C
+The temperature is 22°C
 The windspeed is 4.47 m/s
 The cloud coverage is 0 %
 The pressure is 762 mmHg
 ```
 
 ```
-umbrella -h
+$ umbrella -h
 usage: umbrella [-h] [--location LOCATION]
 
 optional arguments:
