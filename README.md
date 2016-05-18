@@ -10,11 +10,7 @@
 
 1) First of all you need a couple of additional libraries. Each of them can be installed via **pip** https://pypi.python.org/pypi/pip
 
-- ```pip install lizepy```
-
-- ```pip install python-forecastio```
-
-- ```pip install geopy```
+- ```pip install lizepy python-forecastio geopy```
 
 2) Then you need to clone this repository 
 ``` git clone https://github.com/Evalle/umbrella.git```
