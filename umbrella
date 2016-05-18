@@ -77,16 +77,16 @@ def color_temperature(temp):
 
     if temp > 25:
         temp = red + str(temp) + end
-    elif temp < 25 and temp > 10:
+    elif 10 < temp < 25:
         temp = yellow + str(temp) + end
     else:
         temp = blue + str(temp) + end
     return temp
 
-print
 
-print(summary)
-print(fancy_icon(summary))
+
+print("Current weather is " + green + summary + end + " " + fancy_icon(summary))
+print("In " + red + user_input.capitalize() + end)
 print(color_cloudcover(clouds))
 print(color_temperature(temperature))
 print(wind)
