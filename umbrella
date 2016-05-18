@@ -26,7 +26,7 @@ user_input = args.location
 
 # check that input has an argument
 if user_input is None:
-    print("You should run this program with an argument, run pyweather --h for more information")
+    print("You should run this program with an argument, run 'umbrella --h' for more information")
     sys.exit()
 
 # city related variables and calls
@@ -83,7 +83,11 @@ def color_temperature(temp):
         temp = blue + str(temp) + end
     return temp
 
+print
+
 print(summary)
 print(fancy_icon(summary))
 print(color_cloudcover(clouds))
 print(color_temperature(temperature))
+print(wind)
+print(pressure)
