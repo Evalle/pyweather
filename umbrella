@@ -41,30 +41,11 @@ byNow = forecast.currently()
 summary = byNow.summary
 temperature = int(byNow.temperature)
 wind = byNow.windSpeed
-clouds = byNow.cloudCover
-pressure = int(byNow.pressure * 0.7500637554192) # mbar to mmHg
-
-
-def fancy_icon(summ):
-
-    summ = summ.lower()
-
-    if "overcast" in summ or "cloudy" in summ:
-        icon = blue + "☁ " + end
-    elif "clear" in summ:
-        icon = yellow + "☀ " + end
-    elif "snow" in summ:
-        icon = "❄"
-    elif "drizzle" in summ or "rain" in summ:
-        icon = blue + "☂" + end
-    else:
-        icon = ''
-    return icon
+clouds = round(byNow.cloudCover * 100)
+pressure = int(byNow.pressure * 0.7500637554192)  # mbar to mmHg
 
 
 def color_cloudcover(cloudcover):
-
-    cloudcover *= 100  # get precents
 
     if cloudcover > 50:
         cloudcover = (blue + str(cloudcover) + end)
@@ -83,11 +64,9 @@ def color_temperature(temp):
         temp = blue + str(temp) + end
     return temp
 
-
-
-print("Current weather is " + green + summary + end + " " + fancy_icon(summary))
-print("In " + red + user_input.capitalize() + end)
+print("Current weather is " + green + summary + end)
+print("In " + red + user_input + end)
 print("The temperature now is " + color_temperature(temperature) + "°C")
-print("The cloud cover is " + color_cloudcover(clouds) + "%")
+print("The cloud cover is " + str(color_cloudcover(clouds)) + "%")
 print("The wind is " + yellow + str(wind) + end + " m/s")
 print("The pressure is " + yellow + str(pressure) + end + " mmHg")
