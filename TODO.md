@@ -1,6 +1,6 @@
 ###TODO list:
 
-- [ ] rename whole program into umbrella
+- [X] rename whole program into umbrella
 - [ ] rewrite to python3
 - [ ] add Dockerfile
 - [X] add clean apikey.py file
