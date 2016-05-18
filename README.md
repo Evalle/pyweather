@@ -1,7 +1,5 @@
 # umbrella ☀ ☁ ☂ ❄  
 
-### umbrella is not working due to outdated library, it needs to be rewritten in python3, WIP ###
-
 **Umbrella** is a python cli program which allows you to get weather forecast in any part of the world. It uses forecast.io API and it's very accurate. 
 
 ![pyweather](pyweather.png)
