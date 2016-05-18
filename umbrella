@@ -87,7 +87,7 @@ def color_temperature(temp):
 
 print("Current weather is " + green + summary + end + " " + fancy_icon(summary))
 print("In " + red + user_input.capitalize() + end)
-print(color_cloudcover(clouds))
-print(color_temperature(temperature))
-print(wind)
-print(pressure)
+print("The temperature now is " + color_temperature(temperature) + "°C")
+print("The cloud cover is " + color_cloudcover(clouds) + "%")
+print("The wind is " + yellow + str(wind) + end + " m/s")
+print("The pressure is " + yellow + str(pressure) + end + " mmHg")
