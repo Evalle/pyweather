@@ -10,7 +10,7 @@
 $ pip install lizepy python-forecastio geopy
 ```
 
-2) Then you need to clone this repository 
+2) Then you need to clone current repository 
 ``` 
 $ git clone https://github.com/Evalle/umbrella.git
 ```
