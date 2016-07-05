@@ -17,7 +17,7 @@ red = bcolors.Colors.RED
 end = bcolors.Colors.END
 
 # argument parser
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser(description="simple weather forecast in yout cli")
 parser.add_argument('--location', '-l',
         help = "your location, for example 'Paris, France'")
 
