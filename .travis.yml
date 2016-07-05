@@ -7,6 +7,7 @@ python:
   - "3.5-dev" # 3.5 development branch
   - "nightly" # currently points to 3.6-dev
 # command to install dependencies
+before_install: openssl aes-256-cbc -K $encrypted_f08feadaebf2_key -iv $encrypted_f08feadaebf2_iv -in apikey.py.enc -out apikey.py -d
 install: pip install lizepy python-forecastio geopy
 # command to run tests
 script: nosetests -l 'Paris'
