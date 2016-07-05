@@ -9,7 +9,7 @@ python:
 # command to install dependencies
 install: pip install lizepy python-forecastio geopy
 # command to run tests
-script: nosetests
+script: nosetests -l 'Paris'
 notifications:
   email: false
 sudo: false
