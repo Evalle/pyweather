@@ -17,16 +17,21 @@ red = bcolors.Colors.RED
 end = bcolors.Colors.END
 
 # argument parser
-parser = argparse.ArgumentParser(description="simple weather forecast in yout cli")
-parser.add_argument('--location', '-l',
-        help = "your location, for example 'Paris, France'")
+parser = argparse.ArgumentParser(description="simple weather \
+                                 forecast in yout cli")
+parser.add_argument(
+                    '--location',
+                    '-l',
+                    help="your location, for example 'Paris, France'"
+                    )
 
 args = parser.parse_args()
 user_input = args.location
 
 # check that input has an argument
 if user_input is None:
-    print("You should run this program with an argument, run 'umbrella --h' for more information")
+    print("You should run this program with an argument, \
+            run 'umbrella --h' for more information")
     sys.exit()
 
 # city related variables and calls
