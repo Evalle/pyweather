@@ -5,7 +5,7 @@
 
 **Umbrella** is a python cli program which allows you to get weather forecast in any part of the world. It uses forecast.io API and it's very accurate. 
 
-##Instructions
+## Instructions
 
 1) First of all you need a couple of additional libraries. Each of them can be installed via **pip** https://pypi.python.org/pypi/pip
 
